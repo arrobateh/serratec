@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.4">
+  <diagram name="Página-1" id="kyOZN5mUEFu7LpU7uFi0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="O2awFBEIE927YQM-ux14-1" parent="1" style="whiteSpace=wrap;html=1;align=center;" value="MEMBRO" vertex="1">
+          <mxGeometry height="40" width="100" x="175" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="O2awFBEIE927YQM-ux14-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;strokeWidth=1;fontSize=19;" value="SISTEMA&lt;div&gt;BIBLIOTECA&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="220" x="265" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="O2awFBEIE927YQM-ux14-8" parent="1" style="whiteSpace=wrap;html=1;align=center;" value="LIVRO" vertex="1">
+          <mxGeometry height="40" width="100" x="325" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="O2awFBEIE927YQM-ux14-9" parent="1" style="whiteSpace=wrap;html=1;align=center;" value="EMPRESTIMO" vertex="1">
+          <mxGeometry height="40" width="100" x="485" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="BAgN8ZqikbD5z9rkKPpw-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="nome" vertex="1">
+          <mxGeometry height="40" width="100" x="175" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="BAgN8ZqikbD5z9rkKPpw-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" value="id_membro" vertex="1">
+          <mxGeometry height="40" width="100" x="175" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="BAgN8ZqikbD5z9rkKPpw-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" value="id_livro" vertex="1">
+          <mxGeometry height="40" width="100" x="325" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="BAgN8ZqikbD5z9rkKPpw-5" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;fontStyle=4;" value="id_emprestimo" vertex="1">
+          <mxGeometry height="40" width="100" x="485" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="BAgN8ZqikbD5z9rkKPpw-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="endereco" vertex="1">
+          <mxGeometry height="40" width="100" x="175" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="BAgN8ZqikbD5z9rkKPpw-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="telefone" vertex="1">
+          <mxGeometry height="40" width="100" x="175" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="BAgN8ZqikbD5z9rkKPpw-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="email" vertex="1">
+          <mxGeometry height="40" width="100" x="175" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="BAgN8ZqikbD5z9rkKPpw-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="nome" vertex="1">
+          <mxGeometry height="40" width="100" x="325" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="BAgN8ZqikbD5z9rkKPpw-10" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="autor" vertex="1">
+          <mxGeometry height="40" width="100" x="325" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="BAgN8ZqikbD5z9rkKPpw-11" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="categoria" vertex="1">
+          <mxGeometry height="40" width="100" x="325" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="BAgN8ZqikbD5z9rkKPpw-12" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="editora" vertex="1">
+          <mxGeometry height="40" width="100" x="325" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="BAgN8ZqikbD5z9rkKPpw-13" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="data" vertex="1">
+          <mxGeometry height="40" width="100" x="485" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="BAgN8ZqikbD5z9rkKPpw-14" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="fk_membro" vertex="1">
+          <mxGeometry height="40" width="100" x="485" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="BAgN8ZqikbD5z9rkKPpw-15" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="fk_livro" vertex="1">
+          <mxGeometry height="40" width="100" x="485" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="BAgN8ZqikbD5z9rkKPpw-16" parent="1" style="ellipse;whiteSpace=wrap;html=1;align=center;" value="fk_usuario" vertex="1">
+          <mxGeometry height="40" width="100" x="485" y="460" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
