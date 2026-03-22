@@ -38,12 +38,4 @@ Para visualizar o código que usei, copie o conteúdo do arquivo [script.bibliot
 
 ### Tecnologias Utilizadas
 
-<img src ="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg" alt="IntelliJ IDEA Logo" width="50">
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/R_%281%29ds.png" alt="Postgresql Logo" width="60">
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Pop%21_OS_Icon.svg" alt="!Pop_Os Logo" width="60">
-
-- Postgresql
-- IntelliJ IDEA
-- Pop!_OS Linux
+<img src ="https://upload.wikimedia.org/wikipedia/commons/9/9c/IntelliJ_IDEA_Icon.svg" alt="IntelliJ IDEA Logo" width="30">  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/R_%281%29ds.png" alt="Postgresql Logo" width="30">  <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Pop%21_OS_Icon.svg" alt="!Pop_Os Logo" width="30">
