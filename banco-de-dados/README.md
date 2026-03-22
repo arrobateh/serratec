@@ -15,4 +15,20 @@ Os exercícios da aula 1 respondi abaixo em texto e a modelagem de atividade des
 	    - Solução 1: Criar uma nova entidade para os pedidos realizados;
 	    - Solução 2: Criar uma nova entidade para os produtos;
 	    - Solução 3: Criar uma nova entidade para os itens do pedido, visto que um pedido pode conter muitos produtos;
-    
+- Exemplo de entidade e atributos de um relacionamento 1:N e N:M :
+	- Um pedido pode conter muitos produtos;
+	- Muitos produtos podem estar em muitos pedidos;
+- Modelagem conceitual e lógico para um relacionamento Pessoa x Automóvel:
+	- Uma pessoa pode ser responsável por muitos automóveis;
+	- 1 automóvel pode conter muitos responsáveis;
+## Aula 2 (Esquema de Banco de Dados)
+Criei um banco de dados para um sistema de biblioteca. O banco de dados foi estruturado em Postgresql e está hospedado no **Supabase**. Ele contém as seguintes tabelas:
+- livro: Armazena o acervo
+- usuario: Cadastro de leitores com CPF único
+- emprestimo: Faz a ligação N:M entre usuários e livros, controlando o status
+Para visualizar o código que usei, copie o conteúdo do arquivo [script.biblioteca.sql](https://github.com/arrobateh/serratec/blob/main/banco-de-dados/scripts/script.biblioteca.sql), cole no Query Tool do seu SGBD e execute na ordem em que aparecem.
+
+#### Tecnologias Utilizadas
+- Postgresql
+- IntelliJ IDEA
+- Pop!_OS Linux
