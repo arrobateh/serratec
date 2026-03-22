@@ -5,8 +5,8 @@ Este diretório contém todo material produzido durante às aulas da disciplina 
 Os exercícios da aula 1 respondi abaixo em texto e a modelagem de atividade desta aula se encontra [aqui](https://github.com/arrobateh/serratec/tree/main/banco-de-dados/docs) no formato .pdf .
 ## Aula 1 (Introdução e Modelagem)
 - 10 entidades para um sistema financeiro (pensei em um sistema financeiro de uma igreja): Membro, Receita, Despesa, Categoria, Centro de Custo, Dizimo, Tipo Receita, Tipo Despesa, Usuario, Log_Auditoria;
-- 3 entidades com 5 atributos para um sistema de biblioteca: Membro(id_membro, nome, endereco, telefone, email), Livro(id_livro, nome, autor, categoria, editora), Emprestimo(id_emprestimo, data, fk_membro, fk,livro, fk_usuario);
-- Identificar problemas de normalização seguinte tabela: Cliente(id, nome, telefone, email, endereço, produto_comprado, valor_compra):
+- 3 entidades com 5 atributos para um sistema de biblioteca: Membro(id_membro, nome, endereco, telefone, email), Livro(id_livro, nome, autor, categoria, editora), Emprestimo(id_emprestimo, data, fk_membro, fk_livro, fk_usuario);
+- Identificar problemas de normalização na seguinte tabela: Cliente(id, nome, telefone, email, endereço, produto_comprado, valor_compra):
 	- Na entidade Cliente, o atributo "telefone" deve ser uma FK(Foreign Key), visto que o cliente pode possuir mais de um numero;
 	    - Solução: Criar uma nova entidade para os telefones;
 	- Na entidade Cliente, o atributo "endereco" deve ser uma FK(Foreign Key), visto que o cliente pode possuir mais de um endereco;
@@ -19,13 +19,14 @@ Os exercícios da aula 1 respondi abaixo em texto e a modelagem de atividade des
 	- Um pedido pode conter muitos produtos;
 	- Muitos produtos podem estar em muitos pedidos;
 - Modelagem conceitual e lógico para um relacionamento Pessoa x Automóvel:
-	- Uma pessoa pode ser responsável por muitos automóveis;
-	- 1 automóvel pode conter muitos responsáveis;
+	- Pessoa(id_pessoa, nome, telefone, endereco), automovel(id_automovel, model, fk_pessoa);
+		- Uma pessoa pode ser responsável por muitos automóveis;
+		- 1 automóvel pode conter muitos responsáveis;
 ## Aula 2 (Esquema de Banco de Dados)
 Criei um banco de dados para um sistema de biblioteca. O banco de dados foi estruturado em Postgresql e está hospedado no **Supabase**. Ele contém as seguintes tabelas:
 - livro: Armazena o acervo
 - usuario: Cadastro de leitores com CPF único
-- emprestimo: Faz a ligação N:M entre usuários e livros, controlando o status
+- emprestimo: Faz a ligação N:M entre usuários e livros, controlando o status<br>
 Para visualizar o código que usei, copie o conteúdo do arquivo [script.biblioteca.sql](https://github.com/arrobateh/serratec/blob/main/banco-de-dados/scripts/script.biblioteca.sql), cole no Query Tool do seu SGBD e execute na ordem em que aparecem.
 
 #### Tecnologias Utilizadas
