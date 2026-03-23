@@ -28,11 +28,9 @@ create table biblioteca.emprestimo (
 
     constraint fk_usuario_emprestimo -- definindo a chave estrangeira para a tabela usuario
         foreign key (id_usuario) references biblioteca.usuario (id_usuario)
-            on delete cascade, -- definindo a ação de exclusão em cascata para manter a integridade referencial
 
     constraint fk_livro_emprestimo -- definindo a chave estrangeira para a tabela livro
         foreign key (id_livro) references biblioteca.livro (id_livro)
-            on delete cascade); -- definindo a ação de exclusão em cascata para manter a integridade referencial
-
+        
 alter table biblioteca.livro -- adicionando a coluna editora à tabela livro
     add column editora varchar(100) not null;
