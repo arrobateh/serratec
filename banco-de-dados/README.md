@@ -39,7 +39,7 @@ Criei um banco de dados para um sistema de biblioteca. O banco de dados foi estr
 
 ### <img src="https://www.svgrepo.com/show/375831/key.svg" alt="Essa imagem apresenta um fundo circular laranja escuro, quase marrom. No centro no círculo há uma chave da cor branca e uma sombra atrás dela na cor preto com opacidade bem fraca" width="30"> Como executar
 
-Para visualizar o código que usei, copie o conteúdo do arquivo [script.biblioteca.sql](./scripts/script.biblioteca.sql "Link que leva ao arquivo onde está salvo o script para criação do banco de dados"), cole no Query Tool do seu SGBD e execute na ordem em que aparecem.
+Todos os scripts das atividades estão [aqui](./scripts)
 
 
 ### <img src="https://www.svgrepo.com/show/271927/tools-and-utensils-laptop.svg" alt="Icon tools" width="30"> Tecnologias Utilizadas
