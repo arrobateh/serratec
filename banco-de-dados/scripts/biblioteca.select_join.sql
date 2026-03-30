@@ -53,9 +53,3 @@ SELECT
 FROM usuario u
 LEFT JOIN emprestimo e ON e.id_usuario = u.id_usuario
 LEFT JOIN livro l ON e.id_livro = l.id_livro;
-
--- Teste de performance ;
-
-EXPLAIN  ANALYZE
-SELECT * FROM livro
-WHERE titulo = 'As Correntes do Destino'
