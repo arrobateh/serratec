@@ -1,3 +1,4 @@
+-- ATIVIDADE 02.1 ;
 -- Criando um novo schema ;
 
 CREATE SCHEMA IF NOT EXISTS serratec_biblioteca
@@ -8,7 +9,8 @@ CREATE SCHEMA IF NOT EXISTS serratec_biblioteca
 
 SET SEARCH_PATH TO serratec_biblioteca;
 
--- Criando as tabelas ;
+-- ATIVIDADE 02.2
+-- Criando a tabela livro ;
 
 CREATE TABLE livro (
     id_livro SERIAL PRIMARY KEY,
@@ -18,6 +20,9 @@ CREATE TABLE livro (
     quantidade_estoque INT NOT NULL
 );
 
+-- ATIVIDADE 02.3
+-- Criando a tabela usuario ;
+
 CREATE TABLE usuario (
     id_usuario SERIAL PRIMARY KEY,
     nome VARCHAR(200) NOT NULL,
@@ -26,6 +31,9 @@ CREATE TABLE usuario (
     telefone VARCHAR(20) NOT NULL,
     endereco VARCHAR(400) NOT NULL
 );
+
+-- ATIVIDADE 02.4
+-- Criando a tabela emprestimo ;
 
 CREATE TYPE status AS ENUM ('emprestado', 'devolvido');
 
@@ -45,6 +53,9 @@ CREATE TABLE emprestimo (
         FOREIGN KEY (id_livro)
 			REFERENCES livro (id_livro)
 );
-        
+
+-- ATIVIDADE 02.5
+-- Alterando a tabela livro ;
+
 ALTER TABLE livro -- adicionando a coluna editora à tabela livro
     ADD COLUMN editora VARCHAR(100) NOT NULL;
