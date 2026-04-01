@@ -8,8 +8,8 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
-.idea/
-*.iml
-out/
-target/
-.DS_Store
+/.idea/
+/*.iml
+/out/
+/target/
+/.DS_Store
