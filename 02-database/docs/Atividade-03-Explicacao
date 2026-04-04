@@ -1,0 +1,9 @@
+Na entidade Cliente, o atributo "telefone" deve ser uma FK(Foreign Key), visto que o cliente pode possuir mais de um numero;
+    Solução: Criar uma nova entidade para os telefones;
+Na entidade Cliente, o atributo "endereco" deve ser uma FK(Foreign Key), visto que o cliente pode possuir mais de um endereco;
+    Solução: Criar uma nova entidade para os endereços;
+Na entidade Cliente, não há a necessidade de possuir o atributo "produto_comprado" e "valor_compra";
+    Solução 1: Criar uma nova entidade para os pedidos realizados;
+    Solução 2: Criar uma nova entidade para os produtos;
+    Solução 3: Criar uma nova entidade para os itens do pedido, visto que um pedido pode conter                       muitos produtos;
+    
