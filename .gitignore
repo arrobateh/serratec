@@ -14,4 +14,3 @@ out/
 target/
 .DS_Store
 package-template/
-pom.xml
