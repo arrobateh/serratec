@@ -5,26 +5,12 @@
 -
 
 ### 💻 Exercício
-- 1 Calculadora de Média: Declare duas variáveis do tipo double para notas de um aluno. Calcule a média e exiba:
-"Aprovado" se for >= 7, "Reprovado" se < 7, e "Aprovado Parabéns"se for exatamente 10. Elabore este exercicio duas
-vezes, uma utilizando If/else e outra utilizando ternário
-
-- 2 Contador com While: Crie um laço while que imprima os números de 1 a 10 no console.
-
-- 3 Contador de números: Faça um programa que percorra números entre 0 e 30 e exiba a quantidade de números pares e impares.
-
-- 4 Tabuada com For: Utilize a estrutura for para imprimir a tabuada do número 5 (de 5x1 até 5x10).
-
-- 5 Concatenação de Tipos: Crie variáveis de diferentes tipos (int, double, String, boolean) e exiba uma frase que concatene
-todas elas em uma única mensagem de saída.
-
-- 6 Desconto INSS: Crie uma variável para o salário. Aplique a lógica de regra do INSS e exiba o valor final com desconto.
-Faixa 1: Até R$ 1.518,00 -> Alíquota de 7,5%
-Faixa 2: de R$ 1.518,01 até R$ 2.793,88 -> Alíquota de 9%.
-Faixa 3: de R$ 2.793,89 até R$ 4.190,83 -> Alíquota de 12%.
-Faixa 4: Acima de R$ 4.190,84 -> Alíquota de 14%.
-Elabore este exercicio duas vezes, uma utilizando If/else e outra utilizando o switch
-
+1. Lógica e Estruturas de Controle
+Exercício: Simulador de Caixa Eletrônico (Apenas Lógica no main).
+Detalhes: Criar um menu com do-while e switch (1-Ver Saldo, 2-Depositar, 3-Sacar, 0-Sair).
+Regra de Negócio:  - - O caixa eletrônico tem um limite máximo de 3 saques diários. Se o usuário tentar um 4º saque,
+o sistema deve bloquear a operação informando "Limite de saques diários atingido". O valor máximo por saque é de R$ 1.000,00,
+por questões de segurança.
 
 ### 🚀 Aprendizados
 - 
