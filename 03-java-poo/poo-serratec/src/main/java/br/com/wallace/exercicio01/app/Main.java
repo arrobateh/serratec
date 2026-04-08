@@ -6,6 +6,8 @@ public class Main { //Declara a classe principal do programa;
     public static void main(String[] args) {
         int opcao; // Variavel que recebe a escolha do usuario no menu;
         Scanner leia = new Scanner(System.in); // Cria um objeto da classe Scanner chamado 'leia';
+        int qtdSaque = 0; // Variavel que recebe a quantidade de saques realizado;
+        int limiteSaque = 3; // Define o limite de saques diario;
 
         do {
             // Cria o menu;
@@ -26,8 +28,14 @@ public class Main { //Declara a classe principal do programa;
                     System.out.println("\nDepositando um Valor");
                     break;
                 case 3:
-                    System.out.println("\nRealizando um Saque");
+                    if (qtdSaque < limiteSaque) { // Verifica se a quantidade de saques realizado e menor que o limite diario;
+                        qtdSaque++;
+                        System.out.println("\nRealizando um Saque...");
                     break;
+                    } else {
+                        System.out.println("\nLimite de Saques Atingido! Volte Amanha."); // Informa ao usuario que o limite de saques foi atingido;
+                        break;
+                    }
                 case 4:
                     System.out.println("\nSaindo do menu");
                     return;
