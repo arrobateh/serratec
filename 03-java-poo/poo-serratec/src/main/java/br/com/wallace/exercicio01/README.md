@@ -1,8 +1,8 @@
 ## Aula XX - POO / Orientação a Objetos
 
 ### 📌 Conceitos aplicados
-- 
--
+- do-while
+- switch
 
 ### 💻 Exercício
 #### Lógica e Estruturas de Controle
@@ -15,4 +15,4 @@ Regra de Negócio:
 por questões de segurança.
 
 ### 🚀 Aprendizados
-- 
+- Aprendi a realizar operacoes com do-while e switch, alem de aplicar regras de negocio para limitar o numero de saques e o valor maximo por saque.
