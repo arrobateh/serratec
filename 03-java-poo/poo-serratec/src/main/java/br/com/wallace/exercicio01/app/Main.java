@@ -1,4 +1,4 @@
-package br.com.wallace.aula01.app; // Define package de origem;
+package br.com.wallace.exercicio01.app; // Define package de origem;
 
 import java.util.Scanner; // Importa a classe Scanner;
 
@@ -23,16 +23,16 @@ public class Main { //Declara a classe principal do programa;
                     System.out.println("\nVerificando Saldo");
                     break;
                 case 2:
-                    System.out.println("Depositando um Valor");
+                    System.out.println("\nDepositando um Valor");
                     break;
                 case 3:
-                    System.out.println("Realizando um Saque");
+                    System.out.println("\nRealizando um Saque");
                     break;
                 case 4:
                     System.out.println("\nSaindo do menu");
                     return;
                 default:
-                    System.out.print("Opcao invalida. Tente novamente!");
+                    System.out.println("\nOpcao invalida. Tente novamente!");
                     break;
             }
         } while (opcao != 4); // Define a condicao de parada do loop;
