@@ -7,7 +7,7 @@ public class Main { //Declara a classe principal do programa;
         int opcao; // Variavel que recebe a escolha do usuario no menu;
         Scanner leia = new Scanner(System.in); // Cria um objeto da classe Scanner chamado 'leia';
         int qtdSaque = 0; // Variavel que recebe a quantidade de saques realizado;
-        int limiteSaque = 3; // Define o limite de saques diario;
+        int limiteSaqueDiario = 3; // Define o limite de saques diario;
         double saldoConta = 2000.00;
         double limiteSaqueValor = 1000.00;
 
@@ -30,15 +30,30 @@ public class Main { //Declara a classe principal do programa;
                     System.out.println("\nDepositando um Valor");
                     break;
                 case 3:
-                    if (qtdSaque < limiteSaque) {
-                        qtdSaque++;
-                        System.out.println("Digite o valor para sacar: R$ ");
-                        double valorSaque = leia.nextDouble();
-
-                        if (valorSaque > limiteSaqueValor) {
-                            System.out.println("Saldo insuficiente!");
-                        }
+                    if (qtdSaque >= limiteSaqueDiario) {
+                        System.out.println("\nLimite de saques diarios atingido!");
+                        break;
                     }
+                    System.out.print("Digite um valor de saque: R$");
+                    double saqueValor = leia.nextDouble();
+
+                    if (saqueValor <= 0){
+                        System.out.println("\nValor invalido. Tente novamente.");
+                        break;
+                    }
+                    if (saqueValor > limiteSaqueValor) {
+                        System.out.println("\nLimite Indisponivel!");
+                        break;
+                    }
+                    if (saqueValor > saldoConta) {
+                        System.out.println("\nSaldo Insuficiente!");
+                        break;
+                    }
+                    saldoConta -= saqueValor;
+                    qtdSaque++;
+
+                    System.out.println("\nSaque realizado com sucesso!)");
+                    System.out.println("Saldo atual: " + saldoConta);
                     break;
                 case 4:
                     System.out.println("\nSaindo do menu");
