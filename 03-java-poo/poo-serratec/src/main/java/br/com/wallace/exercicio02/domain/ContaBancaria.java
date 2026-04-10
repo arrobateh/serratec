@@ -15,8 +15,8 @@ public class ContaBancaria {
         this.saldo = saldo + BONUS;
         this.quantidadeSaques = 0;
 
-        System.out.printf("Parabéns %s! Conta criada com sucesso.\n", titular);
-        System.out.printf("Como presente de boas vindas, voce recebeu um bonus de R$%s", BONUS);
+        System.out.printf("\nParabéns %s! Conta criada com sucesso.\n", titular);
+        System.out.printf("Como presente de boas vindas, voce recebeu um bonus de R$%s\n", BONUS);
     }
 
     // Define os metodos;

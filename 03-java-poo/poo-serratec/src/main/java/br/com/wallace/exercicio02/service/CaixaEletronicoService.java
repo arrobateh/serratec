@@ -16,7 +16,7 @@ public class CaixaEletronicoService {
     // Define o metodo para validar se o cliente pode realizar o saque, verificando a quantidade de saques realizados;
     public boolean podeSacar(ContaBancaria conta) {
         if (conta.getQuantidadeSaques() >= 3) {
-            System.out.print("Limites de saques diarios atingido!");
+            System.out.print("Limites de saques diarios atingido!\n");
             return false;
         } return true;
     }
@@ -24,10 +24,10 @@ public class CaixaEletronicoService {
     // Define o metodo para realizar saques;
     public void realizarSaque(ContaBancaria conta, double valorSaque) {
         if (valorSaque > 1000.00) { // Define um valor para limite de saques;
-            System.out.print("Valor acima do permitido!");
+            System.out.print("\nValor acima do permitido!\n");
             return;
         } else if (valorSaque > conta.getSaldo()) { // Verifica se o valor do saque e maior que o saldo;
-            System.out.print("Saldo insuficiente!");
+            System.out.print("Saldo insuficiente!\n");
         } else {
             double novoSaldo = conta.getSaldo() - valorSaque;
             conta.sacar(valorSaque);
