@@ -1,0 +1,1 @@
+Exercicios refentes a aula sincrona de front-end essencial, para praticar os conceitos aprendidos.
