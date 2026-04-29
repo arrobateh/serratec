@@ -1,0 +1,61 @@
+.body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.navbar {
+    background-color: #8B0000;
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    gap: 15%;
+}
+
+.logo {
+    width: 10%;
+    margin-left: 20px;
+}
+
+.titulo {
+    color: #CD7F32;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.block1 {
+    background-color: #8B0000;
+    border-radius: 10px;;
+    align-content: center;
+    align-self: center;
+    width: 400px;
+}
+
+.img1 {
+    align-self: center;
+}
+
+.kratos {
+    box-sizing: border-box;
+    border-radius: 30px;
+    max-width: 400px;
+}
+
+.tituloblock1 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #CD7F32;
+}
+
+.texto {
+    max-width: 100%;
+    text-align: justify;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    color: #E0E0E0;
+}

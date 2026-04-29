@@ -4,14 +4,15 @@ let formulario = {
     btnEntrar : document.querySelector("#btn-entrar"),
 };
 // Aqui estamos escutando o evento de click 
-formulario.btnEntrar.addEventListener("click", () => {
-    alert("Olá!")
-    
-    let usuario = new Usuario({
-        email: formulario.email.value,
-        senha: formulario.senha.value,
-    });
-    
-    //Validar se o usuario e senha podem acessar o sistema
-    window.open("./artistas.html", "_self");
-})
+// js/login.js
+const btnEntrar = document.getElementById('btn-entrar'); // Pegue o ID do seu botão Bootstrap
+
+btnEntrar.addEventListener('click', async (e) => {
+    e.preventDefault(); // Evita que a página recarregue
+
+    // Aqui entra o código do Passo A que te mandei antes
+    await realizarLogin();
+
+    // Se o login deu certo, você redireciona:
+    window.location.href = 'musicas.html';
+});
