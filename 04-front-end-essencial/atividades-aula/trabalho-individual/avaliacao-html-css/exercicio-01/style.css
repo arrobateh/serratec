@@ -1,0 +1,78 @@
+.corpo {
+    background-color: lightgreen;
+    font-family: "Nimbus Mono PS";
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.nome {
+    color: blue;
+    font-family: Nimbus Roman;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.blocomeio {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.aboutme {
+    border-radius: 20px;
+    box-shadow: black 3px 3px 8px;
+    padding: 0.45rem;
+    width: 50%;
+    background-color: limegreen;
+    font-family: "Nimbus Mono PS";
+    font-size: 1rem;
+    text-align: justify;
+    color: darkblue;
+}
+
+.tituloblocos {
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.listahobbies {
+    background-color: green;
+    border-radius: 20px;
+    box-shadow: black 3px 3px 8px;
+    padding: 0.45rem;
+    width: 50%;
+    color: lightsteelblue;
+    text-align: justify;
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    width: 10rem;
+    
+}
+
+.finalbar {
+    display: flex;
+    flex-direction: row;
+    flex-basis: content;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+.final {
+    color: black;
+}
+
+.titulofinal {
+    font-size: 1.5rem;
+    text-align: center;
+}
