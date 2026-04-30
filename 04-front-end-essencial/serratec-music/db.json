@@ -1,0 +1,14 @@
+{
+  "musicas": [
+    { "id": "1", "titulo": "Master of Puppets", "artistaId": 1, "albumId": 1 },
+    { "id": "2", "titulo": "The Trooper", "artistaId": 2, "albumId": 2 }
+  ],
+  "artistas": [
+    { "id": 1, "nome": "Metallica", "genero": "Metal" },
+    { "id": 2, "nome": "Iron Maiden", "genero": "Heavy Metal" }
+  ],
+  "albuns": [
+    { "id": 1, "nome": "Master of Puppets", "ano": 1986 },
+    { "id": 2, "nome": "Piece of Mind", "ano": 1983 }
+  ]
+}
