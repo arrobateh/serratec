@@ -1,27 +1,35 @@
-package org.serratec.aula03;
+package org.serratec.aula03.cliente.domain;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 
+@JsonPropertyOrder({"id", "nome", "cpf", "email", "dataNascimento"})
 @Entity
 @Table(name = "cliente", schema = "public")
 public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_cliente")
     private Long id;
 
-    @Column (name = "nome", nullable = false, length = 60)
+    @Size(max = 60, message = "O nome deve ter no maximo 60 caracteres")
     private String nome;
 
+    @CPF(message = "CPF invalido - informe 11 digitos")
     @Column (name = "cpf", unique = true, length = 11)
     private String cpf;
 
+    @Email(message = "Formato de email invalido")
     @Column (name = "email", length = 50)
     private String email;
 
-    @Column (name = "dataNascimento")
+    @Column (name = "data_nascimento")
     private LocalDate dataNascimento;
 
     public Long getId() {
