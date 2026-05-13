@@ -17,27 +17,28 @@ import java.util.List;
 
 @ControllerAdvice
 public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
-//    @Override
-//    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
-//        HttpHeaders headers, HttpStatusCode status, WebRequest request) {
-//
-//        List<String> erros = new ArrayList<>();
-//        for (FieldError error: ex.getBindingResult().getFieldErrors()) {
-//            erros.add(error.getField() + ": " + error.getDefaultMessage());
-//        }
-//
-//        ErroResposta erroResposta = new ErroResposta(status.value(), "Existem campos invalidos, confira o preenchimento",
-//                LocalDateTime.now(), erros);
-//
-//        return super.handleExceptionInternal(ex, erroResposta, headers, status, request);
-//    }
+    @Override
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+        HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+
+        List<String> erros = new ArrayList<>();
+        for (FieldError error: ex.getBindingResult().getFieldErrors()) {
+            erros.add(error.getField() + ": " + error.getDefaultMessage());
+        }
+
+        ErroResposta erroResposta = new ErroResposta(status.value(), "Existem campos invalidos, confira o preenchimento",
+                LocalDateTime.now(), erros);
+
+        return super.handleExceptionInternal(ex, erroResposta, headers, status, request);
+    }
 
     @ExceptionHandler(RecursoNaoEncontradoException.class)
     public ResponseEntity<Object> handleRecursoNaoEncontrado(RecursoNaoEncontradoException ex) {
         ErroResposta erro = new ErroResposta(
                 HttpStatus.NOT_FOUND.value(),
                 ex.getMessage(),
-                LocalDateTime.now()
+                LocalDateTime.now(),
+                new ArrayList<>()
         );
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erro);

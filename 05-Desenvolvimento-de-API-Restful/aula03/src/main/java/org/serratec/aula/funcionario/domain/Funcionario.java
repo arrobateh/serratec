@@ -37,7 +37,7 @@ public class Funcionario {
         super();
     }
 
-    public Funcionario(Long id, String nome, String cargo, String cidade, String uf) {
+    public Funcionario(Long id, String nome, String cargo, String email, String cidade, String uf) {
         super();
         this.id = id;
         this.nome = nome;

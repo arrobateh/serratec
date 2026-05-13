@@ -10,7 +10,7 @@ public class ErroResposta {
     private LocalDateTime dataHora;
     private List<String> erros;
 
-    public ErroResposta(Integer status, String mensagem, LocalDateTime dataHora) {
+    public ErroResposta(Integer status, String mensagem, LocalDateTime dataHora, List<String>erros) {
         super();
         this.status = status;
         this.mensagem = mensagem;
