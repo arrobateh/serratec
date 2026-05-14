@@ -63,4 +63,5 @@ public class FuncionarioController {
         funcionarioRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
 }

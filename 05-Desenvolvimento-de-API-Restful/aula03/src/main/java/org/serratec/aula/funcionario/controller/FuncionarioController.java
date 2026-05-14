@@ -22,13 +22,15 @@ public class FuncionarioController {
     // Listar funcionarios
     @GetMapping
     public List<Funcionario> findAll() {
-       return funcionarioRepository.findAll();
+        return funcionarioRepository.findAll();
     }
 
     // Listar por ID
     @GetMapping("/{id}")
     public ResponseEntity<Funcionario> buscarPorId(@PathVariable Long id) {
-        Funcionario func = funcionarioRepository.findById(id).orElseThrow(() -> new RecursoNaoEncontradoException("Funcionario não encontrado com ID: " + id));
+        Funcionario func = funcionarioRepository.findById(id)
+                .orElseThrow(() -> new RecursoNaoEncontradoException(
+                        "Funcionario não encontrado com ID: " + id));
 
         return ResponseEntity.ok(func);
     }
@@ -45,18 +47,18 @@ public class FuncionarioController {
     // Atualizar funcionario
     @PutMapping("/{id}")
     public ResponseEntity<Funcionario> updateFuncionario(@Valid @RequestBody Funcionario funcionario, @PathVariable Long id) {
-        if(!funcionarioRepository.existsById(id)) {
+        if (!funcionarioRepository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
         funcionario.setId(id);
-        funcionario =  funcionarioRepository.save(funcionario);
+        funcionario = funcionarioRepository.save(funcionario);
         return ResponseEntity.ok(funcionario);
     }
 
     // Deletar funcionario
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarFuncionario(@PathVariable Long id) {
-        if(!funcionarioRepository.existsById(id)) {
+        if (!funcionarioRepository.existsById(id)) {
             return ResponseEntity.notFound().build();
         }
         funcionarioRepository.deleteById(id);

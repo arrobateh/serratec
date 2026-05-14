@@ -6,31 +6,31 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table (name = "funcionario")
+@Table(name = "funcionario")
 public class Funcionario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (name = "nome")
+    @Column(name = "nome")
     @Size(max = 100, message = "O nome deve ter no máximo 100 caracteres")
     @NotBlank(message = "O nome é obrigatório")
     private String nome;
 
     @NotBlank(message = "O cargo é obrigatório")
-    @Column (name = "cargo")
+    @Column(name = "cargo")
     private String cargo;
 
     @Email(message = "Formato de email inválido")
     @Column(name = "email")
     private String email;
 
-    @Column (name = "cidade")
+    @Column(name = "cidade")
     private String cidade;
 
     @Size(min = 2, max = 2, message = "A UF deve te rexatamente 2 caracteres")
-    @Column (name = "uf")
+    @Column(name = "uf")
     private String uf;
 
     public Funcionario() {

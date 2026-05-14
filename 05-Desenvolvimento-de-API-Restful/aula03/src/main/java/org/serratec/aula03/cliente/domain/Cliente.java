@@ -21,16 +21,19 @@ public class Cliente {
     @Size(max = 60, message = "O nome deve ter no maximo 60 caracteres")
     private String nome;
 
-    @CPF(message = "CPF invalido - informe 11 digitos")
-    @Column (name = "cpf", unique = true, length = 11)
+//    @CPF(message = "CPF invalido - informe 11 digitos")
+    @Column(name = "cpf", unique = true, length = 11)
     private String cpf;
 
     @Email(message = "Formato de email invalido")
-    @Column (name = "email", length = 50)
+    @Column(name = "email", length = 50)
     private String email;
 
-    @Column (name = "data_nascimento")
+    @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
+
+    @Embedded
+    DocumentoCliente documento;
 
     public Long getId() {
         return id;
@@ -70,5 +73,13 @@ public class Cliente {
 
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public DocumentoCliente getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(DocumentoCliente documento) {
+        this.documento = documento;
     }
 }
