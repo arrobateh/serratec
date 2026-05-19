@@ -40,4 +40,7 @@ public class Evento {
     )
     private List<RecursoAcessibilidade> recursoAcessibilidade;
 
+    @OneToMany(mappedBy = "evento", cascade = CascadeType.ALL)
+    private List<Feedback> feedbacks;
+
 }

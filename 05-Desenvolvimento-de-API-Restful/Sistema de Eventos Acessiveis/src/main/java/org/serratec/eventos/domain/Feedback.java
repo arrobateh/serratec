@@ -23,4 +23,7 @@ public class Feedback {
     @Column(name = "nota")
     private Integer nota;
 
+    @ManyToOne
+    @JoinColumn(name = "id-evento")
+    private Evento evento;
 }
