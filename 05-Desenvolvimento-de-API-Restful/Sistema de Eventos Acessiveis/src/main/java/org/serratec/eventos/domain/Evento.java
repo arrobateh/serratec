@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity
@@ -30,5 +31,13 @@ public class Evento {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id-local-evento")
     private Local localEvento;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "evento-recurso",
+            joinColumns = @JoinColumn(name = "id-evento"),
+            inverseJoinColumns = @JoinColumn(name = "id-recurso-acessibilidade")
+    )
+    private List<RecursoAcessibilidade> recursoAcessibilidade;
 
 }
