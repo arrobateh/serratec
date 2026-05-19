@@ -20,7 +20,7 @@ public class Evento {
 
     @Size(min = 1, max = 100, message = "O nome do evento deve conter entre 1 e 100 caracteres.")
     @NotBlank(message = "O nome do evento é obrigatório.")
-    @Column(name = "nome-evento")
+    @Column(name = "nome")
     private String nome;
 
     @NotNull(message = "A data do evento é obrigatória.")

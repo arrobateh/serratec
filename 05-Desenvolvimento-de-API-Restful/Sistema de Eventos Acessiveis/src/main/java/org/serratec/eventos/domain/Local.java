@@ -17,7 +17,7 @@ public class Local {
     @NotBlank(message = "O nome do local é obrigatório.")
     @Column(name = "nome")
     private String nomeLocal;
-    
+
     @Column(name = "capacidade-maxima")
     private Integer capacidadeMaxima;
 }
