@@ -11,13 +11,13 @@ public class Local {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_local")
+    @Column(name = "id-local")
     private Long id;
-
 
     @NotBlank(message = "O nome do local é obrigatório.")
     @Column(name = "nome")
     private String nomeLocal;
-
+    
+    @Column(name = "capacidade-maxima")
     private Integer capacidadeMaxima;
 }
