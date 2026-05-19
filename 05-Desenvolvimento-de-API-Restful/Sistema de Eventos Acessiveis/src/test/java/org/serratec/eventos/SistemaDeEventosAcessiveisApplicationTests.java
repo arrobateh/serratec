@@ -1,10 +1,10 @@
-package org.serratec.aula03;
+package org.serratec.eventos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Aula03ApplicationTests {
+class SistemaDeEventosAcessiveisApplicationTests {
 
     @Test
     void contextLoads() {
