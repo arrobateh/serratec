@@ -44,7 +44,7 @@ public class LocalService {
         local.setNomeLocal(localRequestDTO.getNomeLocal());
         local.setCapacidadeMaxima(localRequestDTO.getCapacidadeMaxima());
 
-        local = localRepository.save(local);
+        localRepository.save(local);
 
         return new LocalResponseDTO(local);
     }

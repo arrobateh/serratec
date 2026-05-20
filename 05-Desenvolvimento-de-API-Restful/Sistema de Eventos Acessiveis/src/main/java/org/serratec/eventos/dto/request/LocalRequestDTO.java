@@ -8,9 +8,6 @@ import lombok.Data;
 @Data
 public class LocalRequestDTO {
 
-    @NotNull(message = "O ID do local deve ser informado para atualização.")
-    private Long id;
-
     @NotBlank(message = "O nome do local é obrigatório.")
     private String nomeLocal;
 

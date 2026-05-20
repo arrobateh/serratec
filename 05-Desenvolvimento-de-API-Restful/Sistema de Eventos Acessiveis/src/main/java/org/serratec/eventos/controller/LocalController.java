@@ -18,8 +18,6 @@ public class LocalController {
 
     @Autowired
     private LocalService localService;
-    @Autowired
-    private LocalRepository localRepository;
 
     @GetMapping
     public ResponseEntity<List<LocalResponseDTO>> listar() {
@@ -30,7 +28,7 @@ public class LocalController {
     // Buscar local por ID
     @GetMapping("/{id}")
     public ResponseEntity<LocalResponseDTO> buscarPorId(@PathVariable Long id) {
-        if(!localRepository.existsById(id)) {
+        if(localService.buscarPorId(id) == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(localService.buscarPorId(id));
@@ -47,7 +45,6 @@ public class LocalController {
         if (localService.buscarPorId(id) == null) {
             return ResponseEntity.notFound().build();
         }
-        localRequest.setId(id);
 
         LocalResponseDTO atualizar = localService.atualizar(id, localRequest);
         return ResponseEntity.ok(atualizar);

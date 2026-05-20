@@ -28,7 +28,7 @@ public class Evento {
     @Column(name = "data_evento")
     private LocalDate dataEvento;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "id_local_evento")
     private Local localEvento;
 

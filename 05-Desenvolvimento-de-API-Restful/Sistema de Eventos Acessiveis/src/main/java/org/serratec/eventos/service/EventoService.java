@@ -2,7 +2,7 @@ package org.serratec.eventos.service;
 
 import org.serratec.eventos.domain.Evento;
 import org.serratec.eventos.domain.Local;
-import org.serratec.eventos.dto.request.EventoResquestDTO;
+import org.serratec.eventos.dto.request.EventoRequestDTO;
 import org.serratec.eventos.dto.response.EventoResponseDTO;
 import org.serratec.eventos.repository.EventoRepository;
 import org.serratec.eventos.repository.LocalRepository;
@@ -32,31 +32,30 @@ public class EventoService {
         return new EventoResponseDTO(evento);
     }
 
-    public EventoResponseDTO salvar(EventoResquestDTO eventoResquestDTO) {
-        Local local = localRepository.findById(eventoResquestDTO.getIdLocal())
+    public EventoResponseDTO salvar(EventoRequestDTO eventoRequestDTO) {
+        Local local = localRepository.findById(eventoRequestDTO.getIdLocal())
                 .orElseThrow(() -> new RuntimeException("Local não encontrado"));
 
         Evento evento = new Evento();
-        evento.setNome(eventoResquestDTO.getNome());
-        evento.setDataEvento(eventoResquestDTO.getDataEvento());
+        evento.setNome(eventoRequestDTO.getNome());
+        evento.setDataEvento(eventoRequestDTO.getDataEvento());
         evento.setLocalEvento(local);
 
-        evento = eventoRepository.save(evento);
+        eventoRepository.save(evento);
 
         return new EventoResponseDTO(evento);
     }
 
-    public EventoResponseDTO atualizar(Long id, EventoResquestDTO eventoResquestDTO) {
+    public EventoResponseDTO atualizar(Long id, EventoRequestDTO eventoRequestDTO) {
         Evento evento = eventoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Evento não encontrado com id: " + id));
 
-        Local localEvento = localRepository.findById(eventoResquestDTO.getIdLocal())
-                .orElseThrow(() -> new RuntimeException("Local não encontrado com o ID: " + eventoResquestDTO.getIdLocal()));
-        evento.setNome(eventoResquestDTO.getNome());
-        evento.setDataEvento(eventoResquestDTO.getDataEvento());
-        evento.setLocalEvento(localEvento);
+        evento.setNome(eventoRequestDTO.getNome());
+        evento.setDataEvento(eventoRequestDTO.getDataEvento());
+        evento.setLocalEvento(localRepository.findById(eventoRequestDTO.getIdLocal())
+                .orElseThrow(() -> new RuntimeException("Local não encontrado com id: " + eventoRequestDTO.getIdLocal())));
 
-        evento = eventoRepository.save(evento);
+        eventoRepository.save(evento);
 
         return new EventoResponseDTO(evento);
     }
