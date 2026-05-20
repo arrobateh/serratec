@@ -12,7 +12,7 @@ public class Feedback {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id-feedback")
+    @Column(name = "id_feedback")
     private Long id;
 
     @NotBlank(message = "O comentário é obrigatório.")
@@ -24,6 +24,6 @@ public class Feedback {
     private Integer nota;
 
     @ManyToOne
-    @JoinColumn(name = "id-evento")
+    @JoinColumn(name = "id_evento")
     private Evento evento;
 }

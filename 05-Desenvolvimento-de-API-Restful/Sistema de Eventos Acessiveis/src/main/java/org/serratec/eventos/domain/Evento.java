@@ -16,7 +16,7 @@ public class Evento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id-evento")
+    @Column(name = "id_evento")
     private Long id;
 
     @Size(min = 1, max = 100, message = "O nome do evento deve conter entre 1 e 100 caracteres.")
@@ -25,18 +25,18 @@ public class Evento {
     private String nome;
 
     @NotNull(message = "A data do evento é obrigatória.")
-    @Column(name = "data-evento")
+    @Column(name = "data_evento")
     private LocalDate dataEvento;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id-local-evento")
+    @JoinColumn(name = "id_local_evento")
     private Local localEvento;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "evento-recurso",
-            joinColumns = @JoinColumn(name = "id-evento"),
-            inverseJoinColumns = @JoinColumn(name = "id-recurso-acessibilidade")
+            name = "evento_recurso",
+            joinColumns = @JoinColumn(name = "id_evento"),
+            inverseJoinColumns = @JoinColumn(name = "id_recurso_acessibilidade")
     )
     private List<RecursoAcessibilidade> recursoAcessibilidade;
 

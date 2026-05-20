@@ -12,7 +12,7 @@ public class RecursoAcessibilidade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id-recurso-acessibilidade")
+    @Column(name = "id_recurso_acessibilidade")
     private Long id;
 
     @NotBlank(message = "O nome do recurso de acessibilidade é obrigatório.")
