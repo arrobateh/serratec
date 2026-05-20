@@ -3,6 +3,7 @@ package org.serratec.eventos.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -29,6 +30,7 @@ public class Evento {
     private LocalDate dataEvento;
 
     @ManyToOne
+    @Positive(message = "O ID do local deve ser um número positivo.")
     @JoinColumn(name = "id_local_evento")
     private Local localEvento;
 
@@ -42,5 +44,8 @@ public class Evento {
 
     @OneToMany(mappedBy = "evento", cascade = CascadeType.ALL)
     private List<Feedback> feedbacks;
+
+    @OneToMany(mappedBy = "eventoCadastrado")
+    private List<Participante> participantes;
 
 }
