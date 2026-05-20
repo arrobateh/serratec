@@ -4,6 +4,7 @@ import org.serratec.eventos.domain.Evento;
 import org.serratec.eventos.domain.Local;
 import org.serratec.eventos.dto.request.EventoRequestDTO;
 import org.serratec.eventos.dto.response.EventoResponseDTO;
+import org.serratec.eventos.exception.ResourceNotFoundException;
 import org.serratec.eventos.repository.EventoRepository;
 import org.serratec.eventos.repository.LocalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,13 +29,13 @@ public class EventoService {
 
     public EventoResponseDTO buscarPorId(Long id) {
         Evento evento = eventoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Evento não encontrado com id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Evento não encontrado com id: " + id));
         return new EventoResponseDTO(evento);
     }
 
     public EventoResponseDTO salvar(EventoRequestDTO eventoRequestDTO) {
         Local local = localRepository.findById(eventoRequestDTO.getIdLocal())
-                .orElseThrow(() -> new RuntimeException("Local não encontrado"));
+                .orElseThrow(() -> new ResourceNotFoundException("Local não encontrado"));
 
         Evento evento = new Evento();
         evento.setNome(eventoRequestDTO.getNome());
@@ -48,12 +49,12 @@ public class EventoService {
 
     public EventoResponseDTO atualizar(Long id, EventoRequestDTO eventoRequestDTO) {
         Evento evento = eventoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Evento não encontrado com id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Evento não encontrado com id: " + id));
 
         evento.setNome(eventoRequestDTO.getNome());
         evento.setDataEvento(eventoRequestDTO.getDataEvento());
         evento.setLocalEvento(localRepository.findById(eventoRequestDTO.getIdLocal())
-                .orElseThrow(() -> new RuntimeException("Local não encontrado com id: " + eventoRequestDTO.getIdLocal())));
+                .orElseThrow(() -> new ResourceNotFoundException("Local não encontrado com id: " + eventoRequestDTO.getIdLocal())));
 
         eventoRepository.save(evento);
 
