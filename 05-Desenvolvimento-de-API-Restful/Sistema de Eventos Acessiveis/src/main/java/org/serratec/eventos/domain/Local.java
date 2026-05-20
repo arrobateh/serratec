@@ -2,6 +2,7 @@ package org.serratec.eventos.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -18,6 +19,7 @@ public class Local {
     @Column(name = "nome")
     private String nomeLocal;
 
+    @NotNull(message = "A capacidade máxima deve ser informada.")
     @Column(name = "capacidade_maxima")
     private Integer capacidadeMaxima;
 }

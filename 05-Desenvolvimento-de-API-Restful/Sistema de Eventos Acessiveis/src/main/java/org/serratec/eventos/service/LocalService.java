@@ -1,8 +1,7 @@
 package org.serratec.eventos.service;
 
-import org.serratec.eventos.domain.Evento;
 import org.serratec.eventos.domain.Local;
-import org.serratec.eventos.dto.request.LocalResquestDTO;
+import org.serratec.eventos.dto.request.LocalRequestDTO;
 import org.serratec.eventos.dto.response.LocalResponseDTO;
 import org.serratec.eventos.repository.LocalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +27,7 @@ public class LocalService {
         return new LocalResponseDTO(localEvento);
     }
 
-    public LocalResponseDTO salvar(LocalResquestDTO localRequestDTO) {
+    public LocalResponseDTO salvar(LocalRequestDTO localRequestDTO) {
         Local local = new Local();
         local.setNomeLocal(localRequestDTO.getNomeLocal());
         local.setCapacidadeMaxima(localRequestDTO.getCapacidadeMaxima());
@@ -38,7 +37,7 @@ public class LocalService {
         return new LocalResponseDTO(local);
     }
 
-    public LocalResponseDTO atualizar(Long id, LocalResquestDTO localRequestDTO) {
+    public LocalResponseDTO atualizar(Long id, LocalRequestDTO localRequestDTO) {
         Local local = localRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Local não encontrado com id: " + id));
 
