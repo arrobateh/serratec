@@ -73,7 +73,7 @@ public class OrganizadorService {
 
     public void deletar(Long id) {
         if (!organizadorRepository.existsById(id)) {
-            throw new RuntimeException("Não é possível deletar. Organizador não encontrado com id: " + id);
+            throw new ResourceNotFoundException("Não é possível deletar. Organizador não encontrado com id: " + id);
         }
         organizadorRepository.deleteById(id);
     }

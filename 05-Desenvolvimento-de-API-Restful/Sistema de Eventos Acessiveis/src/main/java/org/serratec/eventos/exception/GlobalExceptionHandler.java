@@ -1,5 +1,7 @@
 package org.serratec.eventos.exception;
 
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.http.*;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -39,5 +41,26 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
                 ));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erros);
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<ProblemDetail> handleDataIntegrityViolation(DataIntegrityViolationException ex) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.CONFLICT,
+                "Não é possível excluir este registro porque ele está vinculado à outros dados"
+        );
+        problemDetail.setTitle("Violação de Integridade de Dados");
+        problemDetail.setProperty("detalhes", ex.getMostSpecificCause().getMessage());
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(problemDetail);
+    }
+
+    @ExceptionHandler(InvalidDataAccessApiUsageException.class)
+    public ResponseEntity<ProblemDetail> handleInvalidDataAccessApiUsage(InvalidDataAccessApiUsageException ex) {
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(
+                HttpStatus.CONFLICT,
+                "Não é possível excluir este registro porque ele está vinculado à outros dados"
+        );
+        problemDetail.setTitle("Violação de Integridade de Dados");
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(problemDetail);
     }
 }
