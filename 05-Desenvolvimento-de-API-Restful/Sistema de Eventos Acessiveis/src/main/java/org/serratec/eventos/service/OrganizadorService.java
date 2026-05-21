@@ -72,9 +72,11 @@ public class OrganizadorService {
     }
 
     public void deletar(Long id) {
-        if (!organizadorRepository.existsById(id)) {
-            throw new ResourceNotFoundException("Não é possível deletar. Organizador não encontrado com id: " + id);
-        }
-        organizadorRepository.deleteById(id);
+        Organizador organizador = organizadorRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Organizador não encontrado com id: " + id));
+
+        organizador.getEventosOrganizados()
+                        .forEach(evento -> evento.setOrganizador(null));
+        organizadorRepository.delete(organizador);
     }
 }
