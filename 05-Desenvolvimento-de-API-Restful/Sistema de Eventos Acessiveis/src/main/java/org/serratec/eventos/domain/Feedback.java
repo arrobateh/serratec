@@ -1,8 +1,7 @@
 package org.serratec.eventos.domain;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 @Data
@@ -19,11 +18,17 @@ public class Feedback {
     @Column(name = "comentario")
     private String comentario;
 
-    @Size(max = 1, message = "Valor inválido. Digite sua nota entre 1 e 5")
+    @NotNull(message = "A nota é obrigatória.")
+    @Min(value = 1, message = "Valor inválido. Digite sua nota entre 1 e 5")
+    @Max(value = 5, message = "Valor inválido. Digite sua nota entre 1 e 5")
     @Column(name = "nota")
     private Integer nota;
 
     @ManyToOne
     @JoinColumn(name = "id_evento")
     private Evento evento;
+
+    @ManyToOne
+    @JoinColumn(name = "id_participante")
+    private Participante participante;
 }

@@ -2,6 +2,7 @@ package org.serratec.eventos.dto.response;
 
 import lombok.Data;
 import org.serratec.eventos.domain.Evento;
+import org.serratec.eventos.domain.Feedback;
 import org.serratec.eventos.domain.Participante;
 
 import java.time.LocalDate;
@@ -16,6 +17,7 @@ public class EventoResponseDTO {
     private LocalResponseDTO localEvento;
     private List<String> nomesParticipantes;
     private int qtdInscritos;
+    private List<String> feedbacks;
 
     public EventoResponseDTO(Evento evento) {
         this.id = evento.getId();
@@ -32,5 +34,21 @@ public class EventoResponseDTO {
                     .map(Participante::getNomeParticipante)
                     .collect(Collectors.toList());
         }
+
+        if (evento.getFeedbacks() != null) {
+            this.feedbacks = evento.getFeedbacks().stream()
+                    .map(f -> f.getParticipante().getNomeParticipante() + ": " + f.getComentario())
+                    .collect(Collectors.toList());
+        }
+
+
+
+//        Opção 2
+//        Obs: alterar o tipo do atributo feedbacks para List<FeedbackResponseDTO>
+//        if (evento.getFeedbacks() != null) {
+//            this.feedbacks = evento.getFeedbacks().stream()
+//                    .map(FeedbackResponseDTO::new)
+//                    .collect(Collectors.toList());
+//        }
     }
 }
