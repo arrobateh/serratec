@@ -47,4 +47,7 @@ public class Evento {
 
     @ManyToMany(mappedBy = "eventoCadastrado")
     private List<Participante> participantes = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "eventos")
+    private List<RecursoAcessibilidade> recursosAcessibilidade = new ArrayList<>();
 }

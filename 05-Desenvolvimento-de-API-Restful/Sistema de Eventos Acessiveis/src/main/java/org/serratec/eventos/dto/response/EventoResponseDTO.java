@@ -18,6 +18,8 @@ public class EventoResponseDTO {
     private List<String> nomesParticipantes;
     private int qtdInscritos;
     private List<String> feedbacks;
+    private List<RecAcessibilidadeResponseDTO> recursosAcessibilidade;
+
 
     public EventoResponseDTO(Evento evento) {
         this.id = evento.getId();
@@ -25,7 +27,7 @@ public class EventoResponseDTO {
         this.dataEvento = evento.getDataEvento();
         this.qtdInscritos = evento.getParticipantes() != null ? evento.getParticipantes().size() : 0;
 
-        if(evento.getLocalEvento() != null) {
+        if (evento.getLocalEvento() != null) {
             this.localEvento = new LocalResponseDTO(evento.getLocalEvento());
         }
 
@@ -40,9 +42,6 @@ public class EventoResponseDTO {
                     .map(f -> f.getParticipante().getNomeParticipante() + ": " + f.getComentario())
                     .collect(Collectors.toList());
         }
-
-
-
 //        Opção 2
 //        Obs: alterar o tipo do atributo feedbacks para List<FeedbackResponseDTO>
 //        if (evento.getFeedbacks() != null) {
@@ -50,5 +49,10 @@ public class EventoResponseDTO {
 //                    .map(FeedbackResponseDTO::new)
 //                    .collect(Collectors.toList());
 //        }
+        if (evento.getRecursosAcessibilidade() != null) {
+            this.recursosAcessibilidade = evento.getRecursosAcessibilidade().stream()
+                    .map(RecAcessibilidadeResponseDTO::new)
+                    .collect(Collectors.toList());
+        }
     }
 }

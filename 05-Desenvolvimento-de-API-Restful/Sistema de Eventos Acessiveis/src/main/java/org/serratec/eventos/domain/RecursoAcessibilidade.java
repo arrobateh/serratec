@@ -5,6 +5,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "recurso_acessibilidade")
@@ -19,4 +22,12 @@ public class RecursoAcessibilidade {
     @Size(max = 100)
     @Column(name = "nome")
     private String nomeRecursoAcessibilidade;
+
+    @ManyToMany
+    @JoinTable(
+            name = "evento_recurso",
+            joinColumns = @JoinColumn(name = "id_recurso_acessibilidade"),
+            inverseJoinColumns = @JoinColumn(name = "id_evento")
+    )
+    private List<Evento> eventos = new ArrayList<>();
 }

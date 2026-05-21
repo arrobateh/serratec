@@ -66,7 +66,7 @@ public class ParticipanteService {
 
     public void deletar(Long id) {
         if (!participanteRepository.existsById(id)) {
-            throw new RuntimeException("Não é possível deletar. Participante não encontrado com id: " + id);
+            throw new ResourceNotFoundException("Não é possível deletar. Participante não encontrado com id: " + id);
         }
         participanteRepository.deleteById(id);
     }
