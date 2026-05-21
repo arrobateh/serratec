@@ -60,4 +60,12 @@ public class ParticipanteController {
         participanteService.deletar(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PostMapping("/{idParticipante}/inscrever/{idEvento}")
+    public ResponseEntity<Void> inscreverParticipanteEmEvento(@PathVariable Long idParticipante, @PathVariable Long idEvento) {
+        participanteService.inscreverParticipanteEmEvento(idParticipante, idEvento);
+        return ResponseEntity.ok().build();
+    }
+
+
 }

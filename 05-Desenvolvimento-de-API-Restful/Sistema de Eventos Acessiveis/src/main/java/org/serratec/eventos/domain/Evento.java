@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -30,11 +31,10 @@ public class Evento {
     private LocalDate dataEvento;
 
     @ManyToOne
-    @Positive(message = "O ID do local deve ser um número positivo.")
-    @JoinColumn(name = "id_local_evento")
+    @JoinColumn(name = "id_local")
     private Local localEvento;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(
             name = "evento_recurso",
             joinColumns = @JoinColumn(name = "id_evento"),
@@ -45,7 +45,6 @@ public class Evento {
     @OneToMany(mappedBy = "evento", cascade = CascadeType.ALL)
     private List<Feedback> feedbacks;
 
-    @OneToMany(mappedBy = "eventoCadastrado")
-    private List<Participante> participantes;
-
+    @ManyToMany(mappedBy = "eventoCadastrado")
+    private List<Participante> participantes = new ArrayList<>();
 }

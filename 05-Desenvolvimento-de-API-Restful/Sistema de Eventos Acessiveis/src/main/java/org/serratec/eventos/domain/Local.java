@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 @Entity
 @Table(name = "local")
@@ -22,4 +24,7 @@ public class Local {
     @NotNull(message = "A capacidade máxima deve ser informada.")
     @Column(name = "capacidade_maxima")
     private Integer capacidadeMaxima;
+
+    @OneToMany(mappedBy = "localEvento")
+    private List<Evento> eventos;
 }

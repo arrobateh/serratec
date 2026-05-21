@@ -9,6 +9,7 @@ import org.serratec.eventos.repository.EventoRepository;
 import org.serratec.eventos.repository.LocalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,12 +22,14 @@ public class EventoService {
     @Autowired
     private LocalRepository localRepository;
 
+    @Transactional(readOnly = true)
     public List<EventoResponseDTO> listarTodos() {
         return eventoRepository.findAll().stream()
                 .map(EventoResponseDTO::new)
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
     public EventoResponseDTO buscarPorId(Long id) {
         Evento evento = eventoRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Evento não encontrado com id: " + id));

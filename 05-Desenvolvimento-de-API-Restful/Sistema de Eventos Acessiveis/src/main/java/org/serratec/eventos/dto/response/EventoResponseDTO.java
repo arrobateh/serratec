@@ -2,8 +2,11 @@ package org.serratec.eventos.dto.response;
 
 import lombok.Data;
 import org.serratec.eventos.domain.Evento;
+import org.serratec.eventos.domain.Participante;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 public class EventoResponseDTO {
@@ -11,14 +14,23 @@ public class EventoResponseDTO {
     private String nome;
     private LocalDate dataEvento;
     private LocalResponseDTO localEvento;
+    private List<String> nomesParticipantes;
+    private int qtdInscritos;
 
     public EventoResponseDTO(Evento evento) {
         this.id = evento.getId();
         this.nome = evento.getNome();
         this.dataEvento = evento.getDataEvento();
+        this.qtdInscritos = evento.getParticipantes() != null ? evento.getParticipantes().size() : 0;
 
         if(evento.getLocalEvento() != null) {
             this.localEvento = new LocalResponseDTO(evento.getLocalEvento());
+        }
+
+        if (evento.getParticipantes() != null) {
+            this.nomesParticipantes = evento.getParticipantes().stream()
+                    .map(Participante::getNomeParticipante)
+                    .collect(Collectors.toList());
         }
     }
 }

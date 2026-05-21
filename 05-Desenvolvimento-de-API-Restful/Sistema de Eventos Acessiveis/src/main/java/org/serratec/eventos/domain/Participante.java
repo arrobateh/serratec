@@ -7,6 +7,8 @@ import jakarta.validation.constraints.Past;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -26,7 +28,11 @@ public class Participante {
     @Past(message = "A data de nascimento deve ser no passado.")
     private LocalDate dataNascimento;
 
-    @ManyToOne
-    @JoinColumn(name = "id_evento")
-    private Evento eventoCadastrado;
+    @ManyToMany
+    @JoinTable(
+            name = "evento_participante",
+            joinColumns = @JoinColumn(name = "id_participante"),
+            inverseJoinColumns = @JoinColumn(name = "id_evento")
+    )
+    private List<Evento> eventoCadastrado = new ArrayList<>();
 }

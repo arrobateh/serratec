@@ -1,9 +1,12 @@
 package org.serratec.eventos.service;
 
+import jakarta.transaction.Transactional;
+import org.serratec.eventos.domain.Evento;
 import org.serratec.eventos.domain.Local;
 import org.serratec.eventos.dto.request.LocalRequestDTO;
 import org.serratec.eventos.dto.response.LocalResponseDTO;
 import org.serratec.eventos.exception.ResourceNotFoundException;
+import org.serratec.eventos.repository.EventoRepository;
 import org.serratec.eventos.repository.LocalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +18,8 @@ import java.util.stream.Collectors;
 public class LocalService {
     @Autowired
     private LocalRepository localRepository;
+    @Autowired
+    private EventoRepository eventoRepository;
 
     public List<LocalResponseDTO> listarTodos() {
         return localRepository.findAll().stream()
@@ -24,7 +29,7 @@ public class LocalService {
 
     public LocalResponseDTO buscarPorId(Long id) {
         Local localEvento = localRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Local não encontrado com id: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Local não encontrado com id: " + id));
         return new LocalResponseDTO(localEvento);
     }
 
@@ -50,10 +55,11 @@ public class LocalService {
         return new LocalResponseDTO(local);
     }
 
+    @Transactional
     public void deletar(Long id) {
-        if (!localRepository.existsById(id)) {
-            throw new ResourceNotFoundException("Impossivel deletar. Local não encontrado com id: " + id);
-        }
+        Local local = localRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Local não encontrado com id: " + id));
+
         localRepository.deleteById(id);
     }
 }
