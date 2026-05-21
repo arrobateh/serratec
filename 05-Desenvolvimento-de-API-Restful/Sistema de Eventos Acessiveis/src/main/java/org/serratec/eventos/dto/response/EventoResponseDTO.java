@@ -19,6 +19,7 @@ public class EventoResponseDTO {
     private int qtdInscritos;
     private List<String> feedbacks;
     private List<RecAcessibilidadeResponseDTO> recursosAcessibilidade;
+    private String organizador;
 
 
     public EventoResponseDTO(Evento evento) {
@@ -26,6 +27,8 @@ public class EventoResponseDTO {
         this.nome = evento.getNome();
         this.dataEvento = evento.getDataEvento();
         this.qtdInscritos = evento.getParticipantes() != null ? evento.getParticipantes().size() : 0;
+        this.organizador = evento.getOrganizador().getRazaoSocial();
+
 
         if (evento.getLocalEvento() != null) {
             this.localEvento = new LocalResponseDTO(evento.getLocalEvento());

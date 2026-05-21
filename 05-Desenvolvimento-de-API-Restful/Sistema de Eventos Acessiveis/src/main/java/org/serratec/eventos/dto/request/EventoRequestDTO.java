@@ -22,6 +22,4 @@ public class EventoRequestDTO {
     @NotNull(message = "O id do local é obrigatório.")
     private Long idLocal;
 
-    @NotNull(message = "O id do recurso de acessibilidade é obrigatório.")
-    private Long idRecursoAcessibilidade;
 }

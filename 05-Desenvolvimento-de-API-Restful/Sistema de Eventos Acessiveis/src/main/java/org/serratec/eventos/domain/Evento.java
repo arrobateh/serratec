@@ -50,4 +50,8 @@ public class Evento {
 
     @ManyToMany(mappedBy = "eventos")
     private List<RecursoAcessibilidade> recursosAcessibilidade = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "id_organizador")
+    private Organizador organizador;
 }
