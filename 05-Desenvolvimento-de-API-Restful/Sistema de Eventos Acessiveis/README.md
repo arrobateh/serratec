@@ -27,7 +27,7 @@ customizadas via Bean Validation e documentação interativa automatizada.
 <p align ="left">
     <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
     <img src="https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white">
-    <img src="https://img.shields.io/badge/apachemaven-C71A36.svg?style=for-the-badge&logo=apachemaven&logoColor=white">
+    <img src="https://img.shields.io/badge/maven-C71A36.svg?style=for-the-badge&logo=apachemaven&logoColor=white">
 </p>
 <p align="left">
     <img src="https://img.shields.io/badge/PostgreSQL-000?style=for-the-badge&logo=postgresql">    
