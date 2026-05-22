@@ -1,4 +1,6 @@
-# Sistema de Eventos Acessíveis
+<img src="./assets/img/capa.jpeg" width="100%">
+
+# <img src="./assets/img/logo2.png" width="70px" style="filter: invert(21%) sepia(100%) saturate(7414%) hue-rotate(244deg) brightness(97%) contrast(106%);">Sistema de Eventos Acessíveis
 
 Este projeto consiste em uma API REST desenvolvida como parte da Residência em TIC / 
 Software do **Serratec** (Turma 37 - Nova Friburgo). O sistema tem como objetivo 
