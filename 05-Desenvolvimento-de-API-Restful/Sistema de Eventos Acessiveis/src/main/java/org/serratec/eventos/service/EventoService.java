@@ -1,10 +1,12 @@
 package org.serratec.eventos.service;
 
+import org.serratec.eventos.domain.CategoriaEvento;
 import org.serratec.eventos.domain.Evento;
 import org.serratec.eventos.domain.Local;
 import org.serratec.eventos.dto.request.EventoRequestDTO;
 import org.serratec.eventos.dto.response.EventoResponseDTO;
 import org.serratec.eventos.exception.ResourceNotFoundException;
+import org.serratec.eventos.repository.CategoriaEventoRepository;
 import org.serratec.eventos.repository.EventoRepository;
 import org.serratec.eventos.repository.LocalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class EventoService {
 
     @Autowired
     private LocalRepository localRepository;
+
+    @Autowired
+    private CategoriaEventoRepository categoriaEventoRepository;
 
     @Transactional(readOnly = true)
     public List<EventoResponseDTO> listarTodos() {
@@ -40,10 +45,14 @@ public class EventoService {
         Local local = localRepository.findById(eventoRequestDTO.getIdLocal())
                 .orElseThrow(() -> new ResourceNotFoundException("Local não encontrado"));
 
+        CategoriaEvento categoriaEvento = categoriaEventoRepository.findById(eventoRequestDTO.getIdCategoriaEvento())
+                .orElseThrow(() -> new ResourceNotFoundException("Categoria de evento não encontrada"));
+
         Evento evento = new Evento();
         evento.setNome(eventoRequestDTO.getNome());
         evento.setDataEvento(eventoRequestDTO.getDataEvento());
         evento.setLocalEvento(local);
+        evento.setCategoriaEvento(categoriaEvento);
 
         eventoRepository.save(evento);
 
@@ -66,7 +75,7 @@ public class EventoService {
 
     public void deletar(Long id) {
         if (!eventoRepository.existsById(id)) {
-            throw new RuntimeException("Não é possível deletar. Evento não encontrado com id: " + id);
+            throw new ResourceNotFoundException("Não é possível deletar. Evento não encontrado com id: " + id);
         }
         eventoRepository.deleteById(id);
     }

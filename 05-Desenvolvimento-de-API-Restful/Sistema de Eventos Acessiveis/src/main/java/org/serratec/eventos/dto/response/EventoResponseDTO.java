@@ -20,6 +20,7 @@ public class EventoResponseDTO {
     private List<String> feedbacks;
     private List<RecAcessibilidadeResponseDTO> recursosAcessibilidade;
     private String organizador;
+    private String NomeCategoria;
 
 
     public EventoResponseDTO(Evento evento) {
@@ -27,8 +28,8 @@ public class EventoResponseDTO {
         this.nome = evento.getNome();
         this.dataEvento = evento.getDataEvento();
         this.qtdInscritos = evento.getParticipantes() != null ? evento.getParticipantes().size() : 0;
-        this.organizador = evento.getOrganizador().getRazaoSocial();
-
+//        this.organizador = evento.getOrganizador().getRazaoSocial();
+        this.NomeCategoria = evento.getCategoriaEvento() != null ? evento.getCategoriaEvento().getNomeCategoriaEvento() : "Sem categoria vinculada";
 
         if (evento.getLocalEvento() != null) {
             this.localEvento = new LocalResponseDTO(evento.getLocalEvento());
@@ -57,5 +58,9 @@ public class EventoResponseDTO {
                     .map(RecAcessibilidadeResponseDTO::new)
                     .collect(Collectors.toList());
         }
+        if (evento.getOrganizador() != null) {
+            this.organizador = evento.getOrganizador().getRazaoSocial();
+        }
+        this.organizador = "Sem organizador vinculado";
     }
 }

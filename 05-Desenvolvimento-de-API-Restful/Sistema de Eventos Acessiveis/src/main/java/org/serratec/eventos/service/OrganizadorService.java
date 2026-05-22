@@ -9,6 +9,7 @@ import org.serratec.eventos.repository.EventoRepository;
 import org.serratec.eventos.repository.OrganizadorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,12 +25,14 @@ public class OrganizadorService {
     @Autowired
     private EventoRepository eventoRepository;
 
+    @Transactional
     public List<OrganizadorResponseDTO> listarTodos() {
         return organizadorRepository.findAll().stream()
                 .map(OrganizadorResponseDTO::new)
                 .collect(Collectors.toList());
     }
 
+    @Transactional
     public OrganizadorResponseDTO buscarPorId(Long id) {
         Organizador organizador = organizadorRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Organizador não encontrado com o ID: " + id));

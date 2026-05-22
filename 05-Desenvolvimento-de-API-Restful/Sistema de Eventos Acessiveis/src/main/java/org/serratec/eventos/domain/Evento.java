@@ -54,4 +54,8 @@ public class Evento {
     @ManyToOne
     @JoinColumn(name = "id_organizador")
     private Organizador organizador;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria_evento")
+    private CategoriaEvento categoriaEvento;
 }
