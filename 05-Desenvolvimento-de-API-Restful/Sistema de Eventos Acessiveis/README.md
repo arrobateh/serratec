@@ -86,47 +86,15 @@ Após subir a aplicação, a documentação interativa e a interface de testes p
 acessadas pelo navegador através da URL oficial exigida:
 👉 http://localhost:8080/swagger-ui.html
 
-<style>
-    .bloco1 {
-         display: flex;
-         flex-direction: row;
-         align-items: center;
-         gap: 20px;
-    }
-    .bloco2 {
-         display: flex;
-         flex-basis: 100px;
-         flex-direction: row;
-         column-wrap: wrap;
-         gap: 20px;
-    }
-.imagem2 {
-   width: 100px;
-   height: 10px;
-   gap: 5px;
-}
-
-</style>
-
-<div class="bloco1">
-   <div class="imagem-1">
-      <img src="/assets/img/dashboard.png">
-   </div>
+<img src="./assets/img/dashboard.png" width="100%">
+<div>
+<img src="./assets/img/evento.png" width="48%" height="150rem">
+<img src="./assets/img/participante.png" width="48%" height="150rem">
 </div>
-
-<div class="bloco2">
-   <div class="imagem-2">
-      <img src="/assets/img/evento.png" width="100%" height="50%">
-      <img src="/assets/img/participante.png" width="100%" height="50%">
-   </div>
-   <div class="imagem-2">
-      <img src="/assets/img/organizador.png" width="100%" height="50%">
-      <img src="/assets/img/schemas.png" width="100%" height="50%">
-   </div>
+<div>
+<img src="./assets/img/organizador.png" width="48%" height="150rem">
+<img src="./assets/img/schemas.png" width="48%" height="150rem">
 </div>
-
-
-
 
 ## 🔍 Exemplos de Endpoints (Conforme DTOs do Sistema)
 1. Cadastrar Organizador
