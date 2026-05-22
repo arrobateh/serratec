@@ -1,5 +1,6 @@
 package org.serratec.eventos.dto.response;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Data;
 import org.serratec.eventos.domain.Evento;
 import org.serratec.eventos.domain.Feedback;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Data
+@JsonPropertyOrder({"id", "nome", "dataEvento", "localEvento", "NomeCategoria", "organizador", "recursosAcessibilidade", "qtdInscritos", "nomesParticipantes", "feedbacks", })
 public class EventoResponseDTO {
     private Long id;
     private String nome;
