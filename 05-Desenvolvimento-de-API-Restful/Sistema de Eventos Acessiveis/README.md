@@ -138,17 +138,16 @@ JSON
       },
     "qtdInscritos": 2,
     "nomesParticipantes": [
-        "Wallace de Oliveira Ildefonso",
-        "Raquel"
+        "Kratos",
+        "Atreus"
       ],
     "feedbacks": [
-        "Wallace de Oliveira Ildefonso: Intérprete de LIBRAS excelente"
+        "Atreus: Intérprete de LIBRAS excelente"
       ],
     "recursosAcessibilidade": [
       {
         "id": 1,
         "nomeRecurso": "Intérprete de LIBRAS",
-        "descricao": "Disponível no palco principal"
       }
     ]
   }
