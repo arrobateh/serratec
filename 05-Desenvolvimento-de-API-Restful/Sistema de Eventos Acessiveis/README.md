@@ -5,7 +5,7 @@
 Este projeto consiste em uma API REST desenvolvida como parte da Residência em TIC / 
 Software do **Serratec** (Turma 37 - Nova Friburgo). O sistema tem como objetivo 
 gerenciar eventos focando na acessibilidade, permitindo vincular organizadores 
-(Pessoas Físicas e Jurídicas), categorias, locais e recursos especiais de 
+(Pessoas Jurídicas), categorias, locais e recursos especiais de 
 acessibilidade para os participantes.
 
 ## 👤 Autor
@@ -13,12 +13,11 @@ acessibilidade para os participantes.
 
 ## 📝 Descrição do Projeto e Tema Escolhido
 O **Sistema de Eventos Acessíveis** é uma plataforma focada na inclusão. Ele centraliza
-dados de cursos, eventos, palestrantes e alunos, garantindo que as necessidades de 
+dados de eventos, participantes, organizadores, garantindo que as necessidades de 
 acessibilidade (como intérpretes de LIBRAS, audiodescrição, rampas de acesso, entre 
 outros) sejam mapeadas desde o cadastro do evento até a inscrição do participante.
 
-O sistema utiliza conceitos avançados de Orientação a Objetos, como herança e polimorfismo
-para tratar os tipos de organizadores (Pessoa Física e Pessoa Jurídica), além de contar 
+O sistema utiliza conceitos de Orientação a Objetos, como herança e polimorfismo, além de contar 
 com tratamento global de exceções padronizado pela RFC 7807 (Problem Detail), validações 
 customizadas via Bean Validation e documentação interativa automatizada.
 
