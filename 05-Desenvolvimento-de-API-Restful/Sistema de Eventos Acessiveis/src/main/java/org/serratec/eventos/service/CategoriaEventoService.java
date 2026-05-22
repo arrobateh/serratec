@@ -2,13 +2,8 @@ package org.serratec.eventos.service;
 
 import org.serratec.eventos.domain.CategoriaEvento;
 import org.serratec.eventos.domain.Evento;
-import org.serratec.eventos.domain.Organizador;
-import org.serratec.eventos.domain.Participante;
 import org.serratec.eventos.dto.request.CategoriaEventoRequestDTO;
-import org.serratec.eventos.dto.request.ParticipanteRequestDTO;
 import org.serratec.eventos.dto.response.CategoriaEventoResponseDTO;
-import org.serratec.eventos.dto.response.EventoResponseDTO;
-import org.serratec.eventos.dto.response.ParticipanteResponseDTO;
 import org.serratec.eventos.exception.ResourceNotFoundException;
 import org.serratec.eventos.repository.CategoriaEventoRepository;
 import org.serratec.eventos.repository.EventoRepository;
