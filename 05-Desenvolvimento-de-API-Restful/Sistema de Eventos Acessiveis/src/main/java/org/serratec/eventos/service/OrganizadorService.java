@@ -22,6 +22,7 @@ public class OrganizadorService {
 
     @Autowired
     EventoService eventoService;
+
     @Autowired
     private EventoRepository eventoRepository;
 
