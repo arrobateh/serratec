@@ -1,11 +1,11 @@
-import LoginModal from "./components/LoginModal/index.jsx";
+import { GlobalStyle } from './styles/global';
+import Home from './pages/Home';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <LoginModal />
-    </div>
+      <>
+        <GlobalStyle />
+        <Home />
+      </>
   );
 }
-
-export default App;
