@@ -21,9 +21,10 @@ public class Cliente {
     @Size(max = 60, message = "O nome deve ter no maximo 60 caracteres")
     private String nome;
 
-//    @CPF(message = "CPF invalido - informe 11 digitos")
-    @Column(name = "cpf", unique = true, length = 11)
-    private String cpf;
+//    //    @CPF(message = "CPF invalido - informe 11 digitos")
+//    @Size(min = 11, max = 11, message = "CPF invalido. Digite 11 digitos")
+//    @Column(name = "cpf", unique = true, length = 11)
+//    private String cpf;
 
     @Email(message = "Formato de email invalido")
     @Column(name = "email", length = 50)
@@ -51,13 +52,13 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
+//    public String getCpf() {
+//        return cpf;
+//    }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
+//    public void setCpf(String cpf) {
+//        this.cpf = cpf;
+//    }
 
     public String getEmail() {
         return email;
