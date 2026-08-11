@@ -1,16 +1,32 @@
-# React + Vite
+# Mistério React 🕵️‍♂️📺
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um exercício desenvolvido em **React** para praticar a criação de componentes, estilização e estruturas básicas de páginas modernas (inspirado em interfaces de streaming e criadores de conteúdo).
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📸 Preview do Projeto
 
-## React Compiler
+Aqui está uma demonstração da tela de login do site oficial:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![Tela de Login](./public/printTelaLogin.png)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tecnologias e Ferramentas Utilizadas
+
+* **Ambiente de Desenvolvimento:** Linux (Pop!_OS)
+* **IDE:** IntelliJ IDEA Ultimate
+* **Framework/Biblioteca:** [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+* **Estilização:** Styled Components / CSS Modules
+* **Linguagem:** JavaScript (JSX)
+
+---
+
+## 🚀 Como Executar o Projeto
+
+Para clonar e rodar esta aplicação localmente, você vai precisar do [Node.js](https://nodejs.org/) instalado em seu sistema Linux.
+
+### 1. Clonar o Repositório
+```bash
+git clone https://github.com/arrobateh/misterio-react.git
+cd misterio-react

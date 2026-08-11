@@ -1,44 +1,67 @@
 import {useEffect, useState} from 'react'
-import styles from './styles.module.css'
 
-function LoginModal() {
+import {
+    ModalOverlay, LoginCard, LogoContainer, LogoKick, BetaTag, CloseBtn,
+    Tabs, TabBtn, InputGroup, PasswordWrapper, ForgotPassword, SubmitBtn, Divider, SocialLogin, SocialBtn
+} from './styles';
 
-    const [activeTab, setActiveTab] = useState('entrar')
+function LoginModal({onClose, initialTab}) {
+
+    const [activeTab, setactiveTab] = useState(initialTab || 'entrar')
     const [isSubmitted, setSubmitted] = useState(false)
-    const [emailOrUser, setEmailOrUser] = useState('');
 
+    const [email, setemail] = useState('');
     const [password, setPassword] = useState('');
+    const [dataNascimento, setDataNascimento] = useState(new Date().toISOString().split('T')[0]);
+    const [usuario, setUsuario] = useState('');
 
     const [userAuthenticated, setUserAuthenticated] = useState(null);
 
-    const handleLogin = (event) => {
+    async function hashPassword(password) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(password);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    const handleLogin = async (event) => {
         event.preventDefault();
 
+        if (!email || !password) {
+            alert('Preencha todos os campos!');
+            return;
+        }
+
+        const hashedPassword = await hashPassword(password);
+
+        if (activeTab === 'cadastrar') {
+            setUserAuthenticated({
+                email: email,
+                password: hashedPassword,
+                dataNascimento: dataNascimento,
+                usuario: usuario
+            });
+            alert('Usuário cadastrado com sucesso!')
+            setemail('');
+            setPassword('');
+            setactiveTab('entrar');
+        }
+
         if (activeTab === 'entrar') {
-            if (!emailOrUser || !password) {
-                alert('Por favor, preencha todos os campos!');
-            } else if (emailOrUser !== userAuthenticated.email || password !== userAuthenticated.password ) {
+            if (!userAuthenticated) {
                 alert('Usuário não encontrado!');
+                return;
             }
 
-        }
-        else if (activeTab === 'cadastrar') {
-            setUserAuthenticated({
-                email: emailOrUser,
-                password: password,
-            });
-            alert('Cadastro realizado com sucesso!');
+            const isUserValid = email === userAuthenticated.email || email === userAuthenticated.usuario;
+            const isPasswordValid = hashedPassword === userAuthenticated.password;
 
-
-            setActiveTab('entrar');
-        }
-        if (activeTab === 'entrar') {
-            if (emailOrUser === userAuthenticated.email && password === userAuthenticated.password) {
-
-
-
-                setEmailOrUser('');
-                setPassword('');
+            if (!isUserValid) {
+                alert('Usuario ou Email não encontrado!')
+            } else if (!isPasswordValid) {
+                alert('Senha incorreta!')
+            } else {
                 setSubmitted(true);
             }
         }
@@ -48,93 +71,104 @@ function LoginModal() {
         if(isSubmitted) {
             console.log('Usuário autenticado!');
             console.log('Email do usuário: ', userAuthenticated.email);
+            console.log('Data de nascimento do usuário: ', new Date(userAuthenticated.dataNascimento + 'T00:00:00').toLocaleDateString('pt-BR'));
+            console.log('Usuário do usuário: ', userAuthenticated.usuario);
             console.log('Senha do usuário: ', userAuthenticated.password);
 
             alert('Login realizado com sucesso!');
 
             setSubmitted(false)
         }
-    }, [isSubmitted]);
+    }, [isSubmitted, userAuthenticated]);
 
     return (
-        <div className={styles.modalOverlay}>
-            <div className={styles.loginCard}>
-                <div className={styles.logoContainer}>
-                    <span className={styles.logoKick}>KICK<span className={styles.betaTag}>BETA</span></span>
-                    <button className="close-btn">&times;</button>
-                </div>
+        <ModalOverlay>
+            <LoginCard>
+                <LogoContainer>
+                    <LogoKick>KICK<BetaTag>BETA</BetaTag></LogoKick>
+                    <CloseBtn onClick={onClose}>&times;</CloseBtn>
+                </LogoContainer>
 
-                <div className="tabs">
-                    <button type="button"
-                            className={`tab-btn ${activeTab === 'entrar' ? 'active' : ''}`}
-                            onClick={() => setActiveTab('entrar')}>Entrar</button>
-                    <button type={"button"}
-                            className={`tab-btn ${activeTab === 'cadastrar' ? 'active' : ''}`}
-                            onClick={() => setActiveTab('cadastrar')}>Cadastrar-se</button>
-                </div>
+                <Tabs>
 
-                <form className="login-form" onSubmit={handleLogin}>
-                    <div className="input-group">
-                        <label htmlFor="username"> {activeTab === 'entrar' ? 'E-mail ou nome de usuário' : 'E-mail'}
+                    <TabBtn type="button" $active={activeTab === 'entrar'} onClick={() => setactiveTab('entrar')}>
+                        Entrar
+                    </TabBtn>
+                    <TabBtn type="button" $active={activeTab === 'cadastrar'} onClick={() => setactiveTab('cadastrar')}>
+                        Cadastrar-se
+                    </TabBtn>
+                </Tabs>
+
+                <form onSubmit={handleLogin}>
+                    <InputGroup>
+                        <label htmlFor="email">
+                            {activeTab === 'entrar' ? 'E-mail ou nome de usuário' : 'E-mail'}
                         </label>
-                        <input type="text"
-                               id="username" autoComplete="off"
-                               placeholder={activeTab === 'cadastrar' ? 'you@example.com' : ''}
-                            // onChange={(e) => setEmailOrUser(e.target.value)}/>
-                               onChange={(e) => setEmailOrUser(e.target.value)}/>
-                    </div>
+                        <input
+                            type="text"
+                            id="email"
+                            autoComplete="off"
+                            placeholder={activeTab === 'cadastrar' ? 'you@example.com' : ''}
+                            value={email}
+                            onChange={(e) => setemail(e.target.value)}
+                        />
+                    </InputGroup>
+
                     {activeTab === 'cadastrar' && (
-                        <div className="input-group">
-                            <label htmlFor="date">{activeTab === 'cadastrar' ? 'Data de nascimento' : ''}
-                            </label>
+                        <InputGroup>
+                            <label htmlFor="date">Data de nascimento</label>
                             <input type="date"
                                    id="date"
-                                   value={new Date().toISOString(). split('T')[0]}></input>
-                        </div>
+
+                                   value={dataNascimento}
+                                   onChange={(e) => setDataNascimento(e.target.value)}
+                                    />
+                        </InputGroup>
                     )}
+
                     {activeTab === 'cadastrar' && (
-                        <div className="input-group">
-                            <label htmlFor="usuario">{activeTab === 'cadastrar' ? 'Usuário' : ''}
-                            </label>
+                        <InputGroup>
+                            <label htmlFor="usuario">Usuário</label>
                             <input type="text"
-                                   id="usuario">
-                            </input>
-                        </div>
+                                   id="usuario"
+                                   value={usuario}
+                                   onChange={(e) => setUsuario(e.target.value)}
+                            />
+                        </InputGroup>
                     )}
 
-                    <div className="input-group">
+                    <InputGroup>
                         <label htmlFor="password">Senha</label>
-                        <div className="password-wrapper">
-                            <input type="password"
-                                   id="password"
-                                   value={password}
-                                // onChange={(e) => setPassword(e.target.value)}/>
-                                   onChange={(e) => setPassword(e.target.value)}/>
-                        </div>
+                        <PasswordWrapper>
+                            <input
+                                type="password"
+                                id="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                        </PasswordWrapper>
                         {activeTab === 'entrar' && (
-                            <a href="#" className="forgot-password">Esqueceu sua senha?</a>
+                            <ForgotPassword href="#">Esqueceu sua senha?</ForgotPassword>
                         )}
-                    </div>
+                    </InputGroup>
 
-                    <button type="submit" className="subimit-btn">Entrar</button>
+                    <SubmitBtn type="submit">
+                        {activeTab === 'entrar' ? 'Entrar' : 'Cadastrar-se'}
+                    </SubmitBtn>
                 </form>
 
-                <div className="divider">
-                    <span>ou continue com</span>
-                </div>
+                <Divider><span>ou continue com</span></Divider>
 
-                <div className="social-login">
-                    <button className="social-btn google-btn">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
-                             alt="Google"/>
-                    </button>
-                    <button className="social-btn apple-btn">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
-                             alt="Apple"/>
-                    </button>
-                </div>
-            </div>
-        </div>
+                <SocialLogin>
+                    <SocialBtn type="button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google"/>
+                    </SocialBtn>
+                    <SocialBtn type="button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple"/>
+                    </SocialBtn>
+                </SocialLogin>
+            </LoginCard>
+        </ModalOverlay>
     )
 }
 
